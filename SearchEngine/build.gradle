@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'SearchEngine'
+
+group 'CS1699'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+run{
+    standardInput = System.in
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.apis:google-api-services-storage:v1-rev158-1.25.0'
+    compile 'com.google.cloud:google-cloud-storage:1.101.0'
+    compile 'com.google.auth:google-auth-library-oauth2-http:0.18.0'
+    compile 'com.jcraft:jsch:0.1.54'
+}
