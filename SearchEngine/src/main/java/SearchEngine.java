@@ -7,17 +7,9 @@ public class SearchEngine{
     public static String option = "";
 
     public static void main(String[] args) throws Exception {
+        System.out.println("\n\n\nWelcome to the Searh Engine!\n\n");
+        System.out.println("Powered by Spark!\n\n\n");
         printMenu();
-
-    }
-    private static void runCommand(String command){
-        try {
-            ProcessBuilder processBuilder = new ProcessBuilder().inheritIO();
-            processBuilder.command(command);
-
-        } catch (Exception e){
-            System.out.println("EXCEPTION: " + e);
-        }
     }
 
     private static void printMenu() throws Exception {
@@ -27,7 +19,7 @@ public class SearchEngine{
         System.out.println("To search ONLY William Shakespeare, Press 3");
         System.out.println("To search all three, press 4");
         System.out.println("To exit, press 5");
-        System.out.print("Please enter your selection: ");
+        System.out.print("Please enter your selection: \n\n\n");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         option = reader.readLine();
@@ -46,27 +38,27 @@ public class SearchEngine{
                 index("*");
 
             case "5":
-                System.out.println("Thank you for Searching! Bye!");
+                System.out.println("\n\n\nThank you for Searching! Bye!\n\n\n");
                 System.exit(0);
 
             default:
-                System.out.println("I didn't understand your input.");
+                System.out.println("\n\n\nI didn't understand your input.\n\n\n");
                 printMenu();
         }
     }
 
     private static void index(String author) throws Exception {
-        System.out.println("Indexing Selected Author(s)...");
+        System.out.println("\n\n\nIndexing Selected Author(s)...");
         JSch jsch = new JSch();
-        Session session = jsch.getSession("sean.mizerski", "34.74.156.245", 22);
-        String privateKey = "~/.ssh/id_rsa";
+        Session session = jsch.getSession("smizerskiCS1699", "34.74.156.245", 22);
+        String privateKey = "src/main/resources/id_rsa";
         jsch.addIdentity(privateKey);
         Properties prop = new Properties();
         prop.put("StrictHostKeyChecking", "no");
         session.setConfig(prop);
         session.connect();
         System.out.println("Connected to Spark Machine");
-        System.out.println("Submitting Spark Job. Please wait...");
+        System.out.println("Submitting Spark Job. Please wait...\n\n\n");
 
         long startTime = System.nanoTime();
 
@@ -85,7 +77,7 @@ public class SearchEngine{
         // Select Search or TopN
         while ((line = reader.readLine()) != null) {
             endTime = System.nanoTime();
-            System.out.println("Indexing took " + (endTime - startTime) + " ms!");
+            System.out.println("\n\n\nIndexing took " + (endTime - startTime) + " ms!\n\n\n");
             System.out.println(line);
             break;
         }
@@ -113,7 +105,7 @@ public class SearchEngine{
         }
 
         endTime = System.nanoTime();
-        System.out.println("Operation took " + (endTime - startTime) + " ms!");
+        System.out.println("\n\n\nOperation took " + (endTime - startTime) + " ms!\n\n\n");
 
         ce.disconnect();
         session.disconnect();
