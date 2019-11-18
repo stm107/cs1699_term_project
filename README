@@ -1,0 +1,10 @@
+This project uses some open source java libraries (mainly jsch for connection to GCP). The dependencies are managed and built with Gradle. 
+
+The inverted index portion (jar already on Google Cloud) was written in scala and runs with on spark.
+
+To run locally:
+
+docker build -t inverted-index .
+docker run -i -t inverted-index
+
+
