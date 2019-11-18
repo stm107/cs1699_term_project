@@ -7,13 +7,13 @@ public class SearchEngine{
     public static String option = "";
 
     public static void main(String[] args) throws Exception {
-        System.out.println("\n\n\nWelcome to the Searh Engine!\n\n");
+        System.out.println("\n\n\nWelcome to the Search Engine!\n\n");
         System.out.println("Powered by Spark!\n\n\n");
         printMenu();
     }
 
     private static void printMenu() throws Exception {
-        System.out.println("Please from the following options: ");
+        System.out.println("Please choose from the following options: ");
         System.out.println("To search ONLY Victor Hugo, Press 1");
         System.out.println("To search ONLY Leo Tolstoy, Press 2");
         System.out.println("To search ONLY William Shakespeare, Press 3");
